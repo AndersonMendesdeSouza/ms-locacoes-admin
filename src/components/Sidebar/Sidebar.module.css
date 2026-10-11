@@ -1,0 +1,218 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 244px;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--color-brand-background);
+  padding: 24px 14px;
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-on-primary);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding: 0 8px 20px;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-on-primary) 7%, transparent);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: 6px;
+  padding: 2px 0 12px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 12px;
+  background: color-mix(in srgb, var(--color-on-primary) 3%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-on-primary) 5%, transparent);
+  color: var(--color-brand-text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.link:hover {
+  background: color-mix(in srgb, var(--color-on-primary) 6%, transparent);
+  border-color: color-mix(in srgb, var(--color-on-primary) 10%, transparent);
+  color: var(--color-on-primary);
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 6px;
+  background: color-mix(in srgb, currentColor 4%, transparent);
+}
+
+.icon svg,
+.logoutButton svg {
+  width: 17px;
+  height: 17px;
+  stroke-width: 1.75;
+  flex-shrink: 0;
+}
+
+.dashboardIcon {
+  color: var(--color-info);
+}
+
+.rentalsIcon {
+  color: var(--color-accent-light);
+}
+
+.clientsIcon {
+  color: var(--color-warning);
+}
+
+.equipmentIcon {
+  color: var(--color-brand-text-secondary);
+}
+
+.active {
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  color: var(--color-accent-text);
+  font-weight: 600;
+}
+
+.active .icon {
+  color: var(--color-accent-text);
+}
+
+.active:hover {
+  background: color-mix(in srgb, var(--color-accent) 17%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 24%, transparent);
+  color: var(--color-accent-text);
+}
+
+.footer {
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid color-mix(in srgb, var(--color-on-primary) 7%, transparent);
+  flex-shrink: 0;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-danger);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.logoutButton:hover {
+  background: color-mix(in srgb, var(--color-danger) 6%, transparent);
+  border-color: color-mix(in srgb, var(--color-danger) 14%, transparent);
+}
+
+.link:focus-visible,
+.logoutButton:focus-visible {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .logoutButton {
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-height: 40dvh;
+    padding: 16px;
+  }
+
+  .logo {
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .navigation {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-width: 0;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    gap: 8px;
+  }
+
+  .link {
+    min-height: 44px;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .footer {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .logoutButton {
+    width: auto;
+    min-height: 40px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+}
