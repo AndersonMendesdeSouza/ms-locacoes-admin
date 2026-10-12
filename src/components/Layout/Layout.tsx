@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router";
 import { initialClients, initialEquipment, initialRentals } from "../../data/management";
-import type { ManagementContext } from "../../types/management";
+import type { ManagementContext, Quote } from "../../types/management";
 
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Header from "../../components/Header/Header";
@@ -12,9 +12,11 @@ export default function AdminLayout() {
   const [clients, setClients] = useState(initialClients);
   const [equipment, setEquipment] = useState(initialEquipment);
   const [rentals, setRentals] = useState(initialRentals);
+  const [quotes, setQuotes] = useState<Quote[]>([]);
 
   const context: ManagementContext = {
     clients, setClients, equipment, setEquipment, rentals, setRentals,
+    quotes, setQuotes,
   };
 
   return (

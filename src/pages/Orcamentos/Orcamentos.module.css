@@ -1,0 +1,280 @@
+.page {
+  font-family: inherit;
+}
+
+.page input,
+.page select {
+  font-family: inherit;
+}
+
+.builder {
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.sectionHeading,
+.itemsHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.sectionHeading h2 {
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.sectionHeading > svg {
+  color: var(--color-primary);
+}
+
+.sectionHeading > span,
+.itemsHeading > span {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.eventFields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 0.65fr) minmax(0, 1.2fr);
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.addItem {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 110px 150px auto;
+  align-items: end;
+  gap: 14px;
+  padding: 22px 0;
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: 22px;
+}
+
+.itemsHeading {
+  margin-top: 22px;
+  margin-bottom: 12px;
+}
+
+.itemsHeading h3 {
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.itemTable th,
+.itemTable td {
+  padding: 12px;
+}
+
+.itemTable td:first-child {
+  min-width: 160px;
+  overflow-wrap: anywhere;
+}
+
+.itemInput {
+  width: 106px;
+  min-height: 38px;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: 13px;
+}
+
+.builderFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.total > span {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.total > strong {
+  color: var(--color-primary-dark);
+  font-size: 24px;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.saved {
+  margin-top: 22px;
+  padding-top: 26px;
+  border-top: 1px solid var(--color-border);
+}
+
+.saved .sectionHeading {
+  margin-bottom: 8px;
+}
+
+.sessionNote {
+  margin-bottom: 18px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.quoteDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  font-size: 13px;
+}
+
+.details dt {
+  margin-bottom: 6px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
+.details dd {
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.confirmText {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.printSheet {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .addItem {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  }
+
+  .addItem > label:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 850px) {
+  .eventFields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .eventFields > label:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 450px) {
+  .eventFields,
+  .addItem,
+  .details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .builderFooter > .actions {
+    width: 100%;
+  }
+
+  .builderFooter button {
+    width: 100%;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+
+  :global(body):has(> .printSheet) > :not(.printSheet),
+  :global(body):has(> .printSheet) :global(dialog[open]) {
+    display: none !important;
+  }
+
+  .printSheet {
+    display: block;
+    background: #fff;
+    color: #172320;
+    font-family: Arial, sans-serif;
+  }
+
+  .printHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #159879;
+  }
+
+  .printHeader > strong {
+    font-size: 20px;
+  }
+
+  .printHeader h1 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .printSheet table {
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .printSheet .quoteDetails > div {
+    overflow: visible;
+  }
+
+  .printSheet th,
+  .printSheet td {
+    min-width: 0;
+    padding: 10px 6px;
+  }
+
+  .printSheet tr,
+  .printSheet .total {
+    break-inside: avoid;
+  }
+
+  .printSheet .total {
+    align-items: flex-end;
+  }
+
+  .printNote {
+    margin-top: 30px;
+    font-size: 10px;
+    line-height: 1.6;
+  }
+}

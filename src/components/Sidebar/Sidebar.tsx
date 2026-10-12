@@ -1,4 +1,4 @@
-import { Boxes, CalendarRange, LayoutDashboard, LogOut, UsersRound } from "lucide-react";
+import { Boxes, CalendarRange, FileText, LayoutDashboard, LogOut, UsersRound } from "lucide-react";
 import { NavLink, useNavigate } from "react-router";
 import styles from "./Sidebar.module.css";
 
@@ -23,6 +23,18 @@ export default function Sidebar() {
             <LayoutDashboard size={19} aria-hidden="true" />
           </span>
           <span>Dashboard</span>
+        </NavLink>
+
+        <NavLink
+          to="/orcamentos"
+          className={({ isActive }) =>
+            `${styles.link} ${isActive ? styles.active : ""}`
+          }
+        >
+          <span className={`${styles.icon} ${styles.rentalsIcon}`}>
+            <FileText size={19} aria-hidden="true" />
+          </span>
+          <span>Orçamentos</span>
         </NavLink>
 
         <NavLink

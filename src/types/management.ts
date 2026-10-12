@@ -29,6 +29,23 @@ export type Rental = {
   status: RentalStatus;
 };
 
+export type QuoteItem = {
+  equipmentId: string;
+  name: string;
+  quantity: number;
+  unitPrice: number;
+};
+
+export type Quote = {
+  id: string;
+  clientName: string;
+  date: string;
+  location: string;
+  createdAt: string;
+  items: QuoteItem[];
+  status: "Aguardando confirmação" | "Confirmado (simulação)";
+};
+
 export type ManagementContext = {
   clients: Client[];
   setClients: Dispatch<SetStateAction<Client[]>>;
@@ -36,4 +53,6 @@ export type ManagementContext = {
   setEquipment: Dispatch<SetStateAction<Equipment[]>>;
   rentals: Rental[];
   setRentals: Dispatch<SetStateAction<Rental[]>>;
+  quotes: Quote[];
+  setQuotes: Dispatch<SetStateAction<Quote[]>>;
 };
